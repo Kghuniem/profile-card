@@ -1,0 +1,230 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* End CSS Reset */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    to right,
+    hsla(197, 62%, 11%, 0.6),
+    hsla(35, 91%, 65%, 0.4)
+  );
+}
+
+/* Light Effect */
+
+.lights-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 5rem;
+}
+.lights-label {
+  width: 4.2rem;
+  height: 2.2rem;
+  background-color: rgb(68, 67, 67);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  transition: background-color 0.3s;
+}
+.lights-label::after {
+  content: "";
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: rgb(161, 64, 161);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.lights-input {
+  display: none;
+}
+
+/* to make the toggle moves */
+.lights-input:checked + .lights-label {
+  background-color: rgb(158, 143, 9);
+}
+
+.lights-input:checked + .lights-label::after {
+  transform: translateX(2.1rem);
+  background-color: rgb(37, 43, 3);
+}
+
+.lights {
+  display: none;
+  position: absolute;
+  z-index: 2;
+}
+.bulb-odd {
+  animation: party 0.5s infinite alternate;
+}
+.bulb-even {
+  animation: party 0.5s infinite alternate-reverse;
+}
+
+@keyframes party {
+  from {
+    fill: #ff1111;
+  }
+  to {
+    fill: #f3ea19;
+  }
+}
+.container:has(.lights-input:checked) .lights {
+  display: block;
+}
+/* CARD */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  min-width: 35rem;
+  overflow: hidden;
+  background-color: hsl(34, 53%, 82%);
+  box-shadow: 0 0 0.5rem black;
+}
+
+.top {
+  height: 10rem;
+
+  background-color: hsl(34, 53%, 82%);
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent 5px,
+      hsla(197, 62%, 11%, 0.5) 5px,
+      hsla(197, 62%, 11%, 0.5) 10px,
+      hsla(5, 53%, 63%, 0) 10px,
+      hsla(5, 53%, 63%, 0) 35px,
+      hsla(5, 53%, 63%, 0.5) 35px,
+      hsla(5, 53%, 63%, 0.5) 40px,
+      hsla(197, 62%, 11%, 0.5) 40px,
+      hsla(197, 62%, 11%, 0.5) 50px,
+      hsla(197, 62%, 11%, 0) 50px,
+      hsla(197, 62%, 11%, 0) 60px,
+      hsla(5, 53%, 63%, 0.5) 60px,
+      hsla(5, 53%, 63%, 0.5) 70px,
+      hsla(35, 91%, 65%, 0.5) 70px,
+      hsla(35, 91%, 65%, 0.5) 80px,
+      hsla(35, 91%, 65%, 0) 80px,
+      hsla(35, 91%, 65%, 0) 90px,
+      hsla(5, 53%, 63%, 0.5) 90px,
+      hsla(5, 53%, 63%, 0.5) 110px,
+      hsla(5, 53%, 63%, 0) 110px,
+      hsla(5, 53%, 63%, 0) 120px,
+      hsla(197, 62%, 11%, 0.5) 120px,
+      hsla(197, 62%, 11%, 0.5) 140px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      transparent 5px,
+      hsla(197, 62%, 11%, 0.5) 5px,
+      hsla(197, 62%, 11%, 0.5) 10px,
+      hsla(5, 53%, 63%, 0) 10px,
+      hsla(5, 53%, 63%, 0) 35px,
+      hsla(5, 53%, 63%, 0.5) 35px,
+      hsla(5, 53%, 63%, 0.5) 40px,
+      hsla(197, 62%, 11%, 0.5) 40px,
+      hsla(197, 62%, 11%, 0.5) 50px,
+      hsla(197, 62%, 11%, 0) 50px,
+      hsla(197, 62%, 11%, 0) 60px,
+      hsla(5, 53%, 63%, 0.5) 60px,
+      hsla(5, 53%, 63%, 0.5) 70px,
+      hsla(35, 91%, 65%, 0.5) 70px,
+      hsla(35, 91%, 65%, 0.5) 80px,
+      hsla(35, 91%, 65%, 0) 80px,
+      hsla(35, 91%, 65%, 0) 90px,
+      hsla(5, 53%, 63%, 0.5) 90px,
+      hsla(5, 53%, 63%, 0.5) 110px,
+      hsla(5, 53%, 63%, 0) 110px,
+      hsla(5, 53%, 63%, 0) 140px,
+      hsla(197, 62%, 11%, 0.5) 140px,
+      hsla(197, 62%, 11%, 0.5) 160px
+    );
+}
+
+.middle {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -6rem;
+  z-index: 1;
+}
+
+.pic {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  border: 0.4rem solid #fff;
+}
+.title {
+  font-size: 2.2rem;
+}
+.profession {
+  font-size: 1.6rem;
+}
+
+/* bottom part */
+
+.bottom {
+  display: flex;
+  margin-top: 3rem;
+  border-top: 0.1rem solid #c4c4c4;
+}
+.column {
+  flex: 1;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+}
+.column:nth-child(2) {
+  border-left: 0.1rem solid #c4c4c4;
+  border-right: 0.1rem solid #c4c4c4;
+}
+.icon {
+  height: 2rem;
+  width: 2rem;
+}
+.username {
+  font-size: 1.2rem;
+}
